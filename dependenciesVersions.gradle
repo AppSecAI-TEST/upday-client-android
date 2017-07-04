@@ -1,0 +1,13 @@
+ext {
+    okHttpVersion = '3.8.1'
+    jwtVersion = '0.7.0'
+
+    butterKnifeVersion = '8.6.0'
+    rxJavaVersion = '2.1.1'
+    rxAndroidVersion = '2.0.1'
+
+    retrofitVersion = '2.3.0'
+    androidSupportVersion = '26.0.+'
+
+    androidConstraintsVersion = '1.0.2'
+}
