@@ -15,6 +15,18 @@ allprojects {
     repositories {
         jcenter()
     }
+
+    ext {
+        // Production
+        prod = [
+                baseUrl         : '"http://upday-chomatdam.boxfuse.io:8080/api/"'
+        ]
+
+        // Development
+        dev = [
+                baseUrl     : '"http://192.168.43.23:8080/api/"'
+        ]
+    }
 }
 
 task clean(type: Delete) {

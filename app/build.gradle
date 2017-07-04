@@ -14,6 +14,7 @@ buildscript {
 }
 apply plugin: 'me.tatarka.retrolambda'
 
+def global = rootProject.extensions.getByName("ext")
 android {
 
     compileOptions {
@@ -31,10 +32,18 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
-        /** API base URL **/
-        buildConfigField "String", "BASE_URL", "\"http://192.168.43.23:8080/api/\""
     }
+    productFlavors {
+        def BASE_ENDPOINT = "BASE_URL"
+        prod {
+            buildConfigField "String", BASE_ENDPOINT, global.prod.baseUrl
+        }
+
+        dev {
+            buildConfigField "String", BASE_ENDPOINT, global.dev.baseUrl
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
