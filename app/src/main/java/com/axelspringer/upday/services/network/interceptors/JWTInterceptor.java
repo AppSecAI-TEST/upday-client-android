@@ -43,7 +43,7 @@ public class JWTInterceptor implements Interceptor {
         final AuthApi api = UpdayApplication.getClient().getAuthRetrofit().create(AuthApi.class);
         // Parameters
         final Map<String, String> params = new HashMap<>();
-        // TODO: Hard-coded only for test purposes
+        // TODO: Hard-coded only for test purposes (pwd for dev flavor)
         params.put("username", "admin");
         params.put("password", "admin");
         final String token =  api.authenticate(params).blockingSingle().getToken();

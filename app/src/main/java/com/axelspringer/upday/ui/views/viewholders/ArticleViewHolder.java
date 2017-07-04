@@ -34,7 +34,9 @@ public class ArticleViewHolder extends RecyclerView.ViewHolder {
     public void bindData(ArticleDTO data) {
         this.title.setText(data.getHeader());
         this.shortDescription.setText(data.getDescription());
-        this.text.setText(data.getDescription());
-        this.date.setText(data.getPublicationDate().toString());
+        this.text.setText(data.getText());
+        if (data.getPublicationDate() != null) {
+            this.date.setText(data.getPublicationDate().toString());
+        }
     }
 }

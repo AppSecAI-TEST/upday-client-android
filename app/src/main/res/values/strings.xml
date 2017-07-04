@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Upday</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_new_article">New Article</string>
+
+    <!-- Strings related to new article -->
+    <string name="new_article_title">Title</string>
+    <string name="new_article_description">Short description</string>
+    <string name="new_article_text">Text</string>
+    <string name="new_article_button">Add a new article</string>
 </resources>

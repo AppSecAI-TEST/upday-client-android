@@ -1,8 +1,10 @@
 package com.axelspringer.upday.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.ButtonBarLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -47,8 +49,10 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mFab.setOnClickListener(view -> Snackbar.make(view, "Add an article", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show());
+        mFab.setOnClickListener(view -> {
+            final Intent intent = new Intent(this, NewArticleActivity.class);
+            startActivity(intent);
+        });
     }
 
     @Override
