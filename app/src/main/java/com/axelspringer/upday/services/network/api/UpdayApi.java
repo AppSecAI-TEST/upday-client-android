@@ -26,11 +26,11 @@ public interface UpdayApi {
     Observable<Response<Void>> createArticle(@Body ArticleDTO articleDTO);
 
     @PUT("articles")
-    Observable<Void> updateArticle();
+    Observable<Response<Void>> updateArticle();
 
     @DELETE("articles/{id}")
-    Observable<Void> deleteArticle(@Path("id") Integer id);
+    Observable<Response<Void>> deleteArticle(@Path("id") Long id);
 
     @GET("articles/{id}")
-    Observable<ArticleDTO> getArticle(@Path("id") Integer id);
+    Observable<ArticleDTO> getArticle(@Path("id") Long id);
 }

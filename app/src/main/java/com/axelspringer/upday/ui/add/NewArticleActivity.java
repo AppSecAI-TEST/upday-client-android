@@ -1,4 +1,4 @@
-package com.axelspringer.upday.ui;
+package com.axelspringer.upday.ui.add;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

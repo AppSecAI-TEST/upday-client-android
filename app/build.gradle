@@ -60,6 +60,10 @@ android {
 
 dependencies {
     compile "com.android.support.constraint:constraint-layout:${androidConstraintsVersion}"
+    // Architecture components
+    compile "android.arch.lifecycle:runtime:${androidArchCompVersion}"
+    compile "android.arch.lifecycle:extensions:${androidArchCompVersion}"
+    annotationProcessor "android.arch.lifecycle:compiler:${androidArchCompVersion}"
     // Support
     compile "com.android.support:appcompat-v7:${androidSupportVersion}"
     compile "com.android.support:cardview-v7:${androidSupportVersion}"

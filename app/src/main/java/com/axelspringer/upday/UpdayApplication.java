@@ -25,4 +25,5 @@ public class UpdayApplication extends Application {
     public static ApiClient getClient() {
         return mApplication.client;
     }
+
 }

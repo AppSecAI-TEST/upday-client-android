@@ -1,4 +1,4 @@
-package com.axelspringer.upday.ui.views.viewholders;
+package com.axelspringer.upday.ui.list.viewholders;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
