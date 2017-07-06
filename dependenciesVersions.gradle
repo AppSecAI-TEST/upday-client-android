@@ -11,4 +11,5 @@ ext {
 
     androidConstraintsVersion = '1.0.2'
     androidArchCompVersion = '1.0.0-alpha3'
+    daggerVersion = '2.11'
 }
