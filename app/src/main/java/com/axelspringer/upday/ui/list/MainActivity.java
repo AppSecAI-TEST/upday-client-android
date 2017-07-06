@@ -1,8 +1,7 @@
 package com.axelspringer.upday.ui.list;
 
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.LifecycleRegistry;
+import android.arch.lifecycle.LifecycleRegistryOwner;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,9 +25,8 @@ import com.axelspringer.upday.ui.list.adapters.SimpleItemTouchHelperCallback;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.reactivex.disposables.CompositeDisposable;
 
-public class MainActivity extends AppCompatActivity implements LifecycleOwner {
+public class MainActivity extends AppCompatActivity implements LifecycleRegistryOwner {
 
     public static final String TAG = MainActivity.class.getSimpleName();
 
@@ -57,14 +55,11 @@ public class MainActivity extends AppCompatActivity implements LifecycleOwner {
         });
         UpdayApplication application = (UpdayApplication) getApplication();
         this.articleListViewModel = ViewModelProviders.of(this, new UpdayFactory(application)).get(ArticleListViewModel.class);
-        lifecycleRegistry.markState(Lifecycle.State.CREATED);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        // If the lifecycle is not at least STARTED or RESUMED, observers won't be active
-        lifecycleRegistry.markState(Lifecycle.State.STARTED);
         this.articleListViewModel.getArticles().observe(this, articles -> {
             Log.d(TAG, "Articles Changed:" + articles);
             final MainRecyclerAdapter adapter = new MainRecyclerAdapter(articles);
@@ -99,7 +94,6 @@ public class MainActivity extends AppCompatActivity implements LifecycleOwner {
     @Override
     protected void onResume() {
         super.onResume();
-        lifecycleRegistry.markState(Lifecycle.State.RESUMED);
         this.articleListViewModel.queryAllArticles();
     }
 
@@ -111,14 +105,8 @@ public class MainActivity extends AppCompatActivity implements LifecycleOwner {
     }
 
     @Override
-    public Lifecycle getLifecycle() {
+    public LifecycleRegistry getLifecycle() {
         return this.lifecycleRegistry;
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        lifecycleRegistry.markState(Lifecycle.State.DESTROYED);
-
-    }
 }
