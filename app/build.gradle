@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 apply from: getRootDir().absolutePath + '/dependenciesVersions.gradle'
-
+apply plugin: 'io.fabric'
 
 buildscript {
     // Repositories and dependencies needed by plugins
@@ -10,6 +10,7 @@ buildscript {
     }
     dependencies {
         classpath 'me.tatarka:gradle-retrolambda:3.3.1'
+        classpath 'io.fabric.tools:gradle:1.+'
     }
 }
 apply plugin: 'me.tatarka.retrolambda'
@@ -83,4 +84,19 @@ dependencies {
     // View injection
     compile "com.jakewharton:butterknife:${butterKnifeVersion}"
     annotationProcessor "com.jakewharton:butterknife-compiler:${butterKnifeVersion}"
+    // Dependency injection
+    compile "com.google.dagger:dagger-android:${daggerVersion}"
+//    compile "com.google.dagger:dagger-android-support:${daggerVersion}"
+    annotationProcessor "com.google.dagger:dagger-android-processor:${daggerVersion}"
+    annotationProcessor "com.google.dagger:dagger-compiler:${daggerVersion}"
+    // Tests
+    androidTestCompile 'com.google.code.findbugs:jsr305:3.0.1'
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
+    // Crashlytics
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
+        transitive = true;
+    }
 }

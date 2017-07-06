@@ -44,7 +44,7 @@ public class NewArticleActivity extends AppCompatActivity {
     @OnClick(R.id.new_article_add_button)
     public void onClickAddButton(View view) {
         // TODO: check form before sending a new object
-        final UpdayApi api = UpdayApplication.getClient().getRetrofit().create(UpdayApi.class);
+        final UpdayApi api = UpdayApplication.getClient().getApiRetrofit().create(UpdayApi.class);
         final ArticleDTO dto = new ArticleDTO();
         dto.setHeader(mTitleEditText.getText().toString());
         dto.setDescription(mDescriptionEditText.getText().toString());

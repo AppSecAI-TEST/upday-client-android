@@ -17,7 +17,7 @@ import io.reactivex.schedulers.Schedulers;
 public class ApiService {
 
     public static Observable<List<ArticleDTO>> getArticles() {
-        final UpdayApi api = UpdayApplication.getClient().getRetrofit().create(UpdayApi.class);
+        final UpdayApi api = UpdayApplication.getClient().getApiRetrofit().create(UpdayApi.class);
         return api.getAllArticles()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());

@@ -1,0 +1,23 @@
+android:
+  components:
+    - tools
+    - platform-tools
+    - tools
+    - platform-tools
+    - build-tools-26.0.0
+    - android-26
+    - extra-android-m2repository
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+    - $HOME/.android/build-cache
+jdk:
+  - oraclejdk8
+language: android
+licenses:
+  - android-sdk-preview-license-52d11cd2
+  - android-sdk-license-.+
+  - google-gdk-license-.+
+script:
+  - "./gradlew build debugDev"

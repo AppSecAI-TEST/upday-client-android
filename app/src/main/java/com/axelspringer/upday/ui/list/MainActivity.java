@@ -17,7 +17,7 @@ import android.view.MenuItem;
 
 import com.axelspringer.upday.R;
 import com.axelspringer.upday.UpdayApplication;
-import com.axelspringer.upday.infrastructure.factories.UpdayFactory;
+import com.axelspringer.upday.infrastructure.di.factories.UpdayFactory;
 import com.axelspringer.upday.ui.add.NewArticleActivity;
 import com.axelspringer.upday.ui.list.adapters.ItemTouchHelperAdapter;
 import com.axelspringer.upday.ui.list.adapters.MainRecyclerAdapter;

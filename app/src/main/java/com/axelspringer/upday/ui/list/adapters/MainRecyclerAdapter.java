@@ -68,7 +68,7 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<ArticleViewHolder>
 
     @Override
     public void onItemDismiss(int position) {
-        final UpdayApi api = UpdayApplication.getClient().getRetrofit().create(UpdayApi.class);
+        final UpdayApi api = UpdayApplication.getClient().getApiRetrofit().create(UpdayApi.class);
         api.deleteArticle(mData.get(position).getId())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

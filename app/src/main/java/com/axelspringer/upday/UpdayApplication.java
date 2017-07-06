@@ -2,9 +2,12 @@ package com.axelspringer.upday;
 
 import android.app.Application;
 
-import com.axelspringer.upday.services.network.ApiClient;
+import com.axelspringer.upday.infrastructure.di.components.DaggerNetworkComponent;
+import com.axelspringer.upday.infrastructure.di.components.NetworkComponent;
+import com.axelspringer.upday.infrastructure.di.modules.NetworkModule;
+import com.crashlytics.android.Crashlytics;
 
-import retrofit2.Retrofit;
+import io.fabric.sdk.android.Fabric;
 
 /**
  * Created by damien on 7/4/17.
@@ -13,17 +16,21 @@ import retrofit2.Retrofit;
 public class UpdayApplication extends Application {
 
     private static UpdayApplication mApplication;
-    private ApiClient client;
+
+    protected NetworkComponent networkComponent;
 
     @Override
     public void onCreate() {
         super.onCreate();
+        Fabric.with(this, new Crashlytics());
         mApplication = this;
-        this.client = new ApiClient(BuildConfig.BASE_URL);
+        networkComponent = DaggerNetworkComponent.builder()
+                .networkModule(new NetworkModule(BuildConfig.BASE_URL))
+                .build();
     }
 
-    public static ApiClient getClient() {
-        return mApplication.client;
+    public static NetworkComponent getClient() {
+        return mApplication.networkComponent;
     }
 
 }
