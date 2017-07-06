@@ -1,7 +1,6 @@
 package com.axelspringer.upday.infrastructure.di.modules;
 
 import com.axelspringer.upday.BuildConfig;
-import com.axelspringer.upday.services.network.ApiClient;
 import com.axelspringer.upday.services.network.interceptors.JWTInterceptor;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
@@ -26,12 +25,6 @@ public class NetworkModule {
 
     public NetworkModule(String baseUrl) {
         this.baseUrl = baseUrl;
-    }
-
-    @Provides
-    @Singleton
-    public ApiClient provideApiClient(Retrofit authRetrofit, @Named("api") Retrofit apiRetrofit) {
-        return new ApiClient(authRetrofit, apiRetrofit);
     }
 
     @Provides

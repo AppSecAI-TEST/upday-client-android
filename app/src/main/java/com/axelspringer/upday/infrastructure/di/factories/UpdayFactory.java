@@ -1,10 +1,9 @@
-package com.axelspringer.upday.infrastructure.factories;
+package com.axelspringer.upday.infrastructure.di.factories;
 
 import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
 
 import com.axelspringer.upday.UpdayApplication;
-import com.axelspringer.upday.ui.list.ArticleListViewModel;
 
 /**
  * Created by damien on 7/6/17.
