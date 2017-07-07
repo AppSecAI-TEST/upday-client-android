@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 apply from: getRootDir().absolutePath + '/dependenciesVersions.gradle'
-
+apply plugin: 'io.fabric'
 
 buildscript {
     // Repositories and dependencies needed by plugins
@@ -10,6 +10,7 @@ buildscript {
     }
     dependencies {
         classpath 'me.tatarka:gradle-retrolambda:3.3.1'
+        classpath 'io.fabric.tools:gradle:1.+'
     }
 }
 apply plugin: 'me.tatarka.retrolambda'
@@ -94,4 +95,8 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     testCompile 'junit:junit:4.12'
+    // Crashlytics
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
+        transitive = true;
+    }
 }

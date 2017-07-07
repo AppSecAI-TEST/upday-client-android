@@ -35,6 +35,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.axelspringer.upday.ui.list.MainActivity" />
         </activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="ff9f19cce9be1b87fecac039911d5755c106385b"
+            />
     </application>
 
 </manifest>
