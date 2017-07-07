@@ -1,5 +1,6 @@
 Upday - Android client 
 ========
+[![Build Status](https://travis-ci.org/chomatdam/upday-client-android.svg?branch=master)](https://travis-ci.org/chomatdam/upday-client-android)
 
 This application is a client to display data exposed by `upday-services` project.
 
